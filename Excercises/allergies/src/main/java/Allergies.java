@@ -61,6 +61,12 @@ public class Allergies {
     }
 
     public List<Allergen> getList() {
-        return allergies;
+        List<Allergen> list = new ArrayList<>();
+
+        for (Allergen a : allergies) {
+            list.add(a);
+        }
+
+        return list;
     }
 }
