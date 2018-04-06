@@ -2,9 +2,14 @@
 *.beam
 .DS_Store
 .class
+*.class
 build/
 .gradle/
 .idea/
+.meta/
+.settings/
+.bin/
+.vscode/
 *.iml
 bin/configlet
 bin/configlet.exe
