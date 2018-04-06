@@ -1,5 +1,4 @@
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,7 +11,6 @@ public class AcronymTest {
         assertEquals(expected, new Acronym(phrase).get());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void lowercaseWords() {
         final String phrase = "Ruby on Rails";
@@ -20,7 +18,6 @@ public class AcronymTest {
         assertEquals(expected, new Acronym(phrase).get());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void punctuation() {
         final String phrase = "First In, First Out";
@@ -28,7 +25,6 @@ public class AcronymTest {
         assertEquals(expected, new Acronym(phrase).get());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void NonAcronymAllCapsWord() {
         final String phrase = "GNU Image Manipulation Program";
@@ -36,7 +32,6 @@ public class AcronymTest {
         assertEquals(expected, new Acronym(phrase).get());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void punctuationWithoutWhitespace() {
         final String phrase = "Complementary metal-oxide semiconductor";
