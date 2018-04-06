@@ -24,22 +24,20 @@ public class BaseConverter {
     }
 
     public int[] convertToBase(int base) throws IllegalArgumentException {
-        int[] newNumber;
+        int[] newNumber = Arrays.copyOf(number, number.length);
         
-        if (base <= 1) {
+        if (base < 2) {
             throw new IllegalArgumentException(EXCEPTION_MSG_ERR_BASE);
         }
 
-        if (base == this.base) {
-            newNumber = this.number;
-        } else {
-            newNumber = nextDivision(getDecimalNumber(), base);
+        if (base != this.base) {
+            newNumber = nextDivision(getDecimalValue(), base);
         }
         
         return newNumber;
     }
 
-    private int getDecimalNumber() {
+    private int getDecimalValue() {
         int decimal = 0;
 
         for (int i = 0; i < number.length; i++) {
