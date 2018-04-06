@@ -1,4 +1,4 @@
-enum Allergen {
+public enum Allergen {
     EGGS(1),
     PEANUTS(2),
     SHELLFISH(4),
