@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**
@@ -12,7 +11,7 @@ public class Alphametics {
     private String[] puzzle;
     private LinkedHashMap<Character, Integer> corrispondence;
 
-    public Alphametics(String puzzle) throws UnsolvablePuzzleException {
+    public Alphametics(String puzzle) {
         int i = 0;
 
         this.corrispondence = new LinkedHashMap<>();
@@ -31,7 +30,7 @@ public class Alphametics {
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
         int[] sol = new int[21];
         boolean[] taked = new boolean[21];
-        LinkedHashMap<Character, Integer> localSolution;
+        LinkedHashMap<Character, Integer> finalSolution;
 
         Arrays.fill(sol, -1);
 
@@ -39,13 +38,13 @@ public class Alphametics {
             throw new UnsolvablePuzzleException(true);
         }
 
-        localSolution = new LinkedHashMap<>();
+        finalSolution = new LinkedHashMap<>();
 
         for (Character ch : corrispondence.keySet()) {
-            localSolution.put(ch, sol[corrispondence.get(ch)]);
+            finalSolution.put(ch, sol[corrispondence.get(ch)]);
         }
 
-        return localSolution;
+        return finalSolution;
     }
 
     private boolean genSol(int pos, int[] sol, boolean[] taked) {
