@@ -8,9 +8,10 @@ build/
 .idea/
 .meta/
 .settings/
-.bin/
+bin/
 .vscode/
 *.iml
+.keep
 bin/configlet
 bin/configlet.exe
 /exercises/.nb-gradle/
