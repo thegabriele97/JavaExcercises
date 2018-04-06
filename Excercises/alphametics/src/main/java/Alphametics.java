@@ -28,8 +28,8 @@ public class Alphametics {
     }
 
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
-        int[] sol = new int[21];
-        boolean[] taked = new boolean[21];
+        int[] sol = new int[10];
+        boolean[] taked = new boolean[sol.length];
         LinkedHashMap<Character, Integer> finalSolution;
 
         Arrays.fill(sol, -1);
