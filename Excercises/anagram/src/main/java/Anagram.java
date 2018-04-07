@@ -18,10 +18,13 @@ public class Anagram {
         List<String> finalSolution = new ArrayList<>();
         String oldWord = word;
 
-        word = word.replace(word.charAt(0), Character.toLowerCase(word.charAt(0)));
-        generateAnagrams(0, new char[word.length()], new boolean[word.length()], finalSolution, possibleMatches);
-        word = oldWord;
+        word = new StringBuilder().append(Character.toLowerCase(word.charAt(0)))
+                                  .append(word.substring(1))
+                                  .toString();
 
+        generateAnagrams(0, new char[word.length()], new boolean[word.length()], finalSolution, possibleMatches);
+        
+        word = oldWord;
         return finalSolution;
     }
 
