@@ -9,8 +9,9 @@ public class Binary {
     private byte[] number;
 
     public Binary(String number) {
-        this.number = new byte[number.length()];
         int index = 0;
+        
+        this.number = new byte[number.length()];
 
         for (char ch : number.toCharArray()) {
 
