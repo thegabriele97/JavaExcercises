@@ -13,7 +13,6 @@ public class BinarySearch<T extends Comparable<T>> {
         this.collection = collection;
     }
 
-    //TODO:
     public int indexOf(T key) {
 
         if (collection.isEmpty()) {
