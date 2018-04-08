@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 class BinarySearchTree<T extends Comparable<T>> {
@@ -26,7 +27,7 @@ class BinarySearchTree<T extends Comparable<T>> {
             int cmp = value.compareTo(curr.getData());
 
             prev = curr;
-            curr = (cmp <= 0) ? curr.left : curr.right;
+            curr = (cmp <= 0) ? curr.getLeft() : curr.getRight();
         }
 
         int cmp = value.compareTo(prev.getData());
@@ -38,7 +39,10 @@ class BinarySearchTree<T extends Comparable<T>> {
     }
  
     List<T> getAsSortedList() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        List<T> traversalInOrder = new ArrayList<>();
+
+        visitInorderRecursive(getRoot(), nil, traversalInOrder);
+        return traversalInOrder;
     }
 
     List<T> getAsLevelOrderList() {
@@ -47,6 +51,17 @@ class BinarySearchTree<T extends Comparable<T>> {
 
     Node<T> getRoot() {
         return root;
+    }
+
+    private void visitInorderRecursive(Node<T> node, Node<T> nil, List<T> traversal) {
+
+        if (node == nil) {
+            return;
+        }
+
+        visitInorderRecursive(node.getLeft(), nil, traversal);
+        traversal.add(node.getData());
+        visitInorderRecursive(node.getRight(), nil, traversal);
     }
 
     static class Node<T> {
