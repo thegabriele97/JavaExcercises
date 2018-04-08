@@ -2,17 +2,19 @@ import java.util.List;
 
 class BinarySearchTree<T extends Comparable<T>> {
     private Node<T> root;
+    private Node<T> nil;
 
     /**
      * constructor of BST
      */
     BinarySearchTree() {
         this.root = null;
+        this.nil = new Node<T>(null, null);
     }
 
     void insert(T value) {
         Node<T> prev = null;
-        Node<T> newNode = new Node<T>(value);
+        Node<T> newNode = new Node<T>(value, nil);
 
         if (root == null) {
             root = newNode;
@@ -20,7 +22,7 @@ class BinarySearchTree<T extends Comparable<T>> {
         }
 
         Node<T> curr = this.root;
-        while (curr != null) {
+        while (curr != nil) {
             int cmp = value.compareTo(curr.getData());
 
             prev = curr;
@@ -61,8 +63,8 @@ class BinarySearchTree<T extends Comparable<T>> {
             this.right = right;
         }
 
-        private Node(T data) {
-            this(data, null, null);
+        private Node(T data, Node<T> nil) {
+            this(data, nil, nil);
         }
 
         Node<T> getLeft() {
