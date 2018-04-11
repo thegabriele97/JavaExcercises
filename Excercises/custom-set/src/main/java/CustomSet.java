@@ -120,8 +120,9 @@ public class CustomSet<T> implements Set<T> {
         }
     }
 
-    public CustomSet<T> getUnion(CustomSet<T> otherSet) {
-        CustomSet<T> set = new CustomSet<>();
+    @Override
+    public Set<T> getUnion(Set<T> otherSet) {
+        Set<T> set = new CustomSet<>();
 
         for (T e : this) {
             set.add(e);
@@ -134,10 +135,11 @@ public class CustomSet<T> implements Set<T> {
         return set;
     }
 
-    public CustomSet<T> getIntersection(CustomSet<T> otherSet) {
-        CustomSet<T> set = new CustomSet<>();
-        CustomSet<T> toIterate = (otherSet.size() < size()) ? otherSet : this;
-        CustomSet<T> toCheck = (toIterate == otherSet) ? this : otherSet;
+    @Override
+    public Set<T> getIntersection(Set<T> otherSet) {
+        Set<T> set = new CustomSet<>();
+        Set<T> toIterate = (otherSet.size() < size()) ? otherSet : this;
+        Set<T> toCheck = (toIterate == otherSet) ? this : otherSet;
 
         for (T e : toIterate) {
             if (toCheck.contains(e)) {
@@ -148,8 +150,9 @@ public class CustomSet<T> implements Set<T> {
         return set;
     }
 
-    public CustomSet<T> getDifference(CustomSet<T> otherSet) {
-        CustomSet<T> set = new CustomSet<>();
+    @Override
+    public Set<T> getDifference(Set<T> otherSet) {
+        Set<T> set = new CustomSet<>();
 
         for (T e : this) {
             if (!otherSet.contains(e)) {

@@ -21,4 +21,9 @@ public interface Set<T> extends Iterable<T> {
     
     @Override
     boolean equals(Object obj);
+
+    /* generics methods for Set Operations */
+    Set<T> getDifference(Set<T> otherSet);
+    Set<T> getUnion(Set<T> otherSet);
+    Set<T> getIntersection(Set<T> otherSet);
 }

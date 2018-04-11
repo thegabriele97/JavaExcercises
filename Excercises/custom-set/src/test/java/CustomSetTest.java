@@ -1,4 +1,4 @@
-import org.junit.Ignore;
+
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -222,11 +222,8 @@ public class CustomSetTest {
      
     @Test
     public void intersectionOfTwoEmptySetsIsAnEmptySet() {
-        CustomSet<Integer> actual = new CustomSet<Integer>(Collections.emptyList());
-
-        actual = actual.getIntersection(new CustomSet<>(Collections.emptyList()));
-                
-        //.getIntersection(new CustomSet<>(Collections.emptyList()));
+        Set<Integer> actual = new CustomSet<Integer>(Collections.emptyList())
+                .getIntersection(new CustomSet<>(Collections.emptyList()));
 
         assertNotNull(actual);
         assertTrue(actual.isEmpty());
@@ -235,7 +232,7 @@ public class CustomSetTest {
      
     @Test
     public void intersectionOfAnEmptySetAndNonEmptySetIsAnEmptySet() {
-        CustomSet<Character> actual = new CustomSet<Character>(Collections.emptyList())
+        Set<Character> actual = new CustomSet<Character>(Collections.emptyList())
                 .getIntersection(new CustomSet<>(Arrays.asList('3', '2', '5')));
 
         assertNotNull(actual);
@@ -245,7 +242,7 @@ public class CustomSetTest {
      
     @Test
     public void intersectionOfANonEmptySetAndAnEmptySetIsAnEmptySet() {
-        CustomSet<String> actual = new CustomSet<>(Arrays.asList("1", "2", "3", "4"))
+        Set<String> actual = new CustomSet<>(Arrays.asList("1", "2", "3", "4"))
                 .getIntersection(new CustomSet<>(Collections.emptyList()));
 
         assertNotNull(actual);
@@ -256,7 +253,7 @@ public class CustomSetTest {
      
     @Test
     public void intersectionOfTwoSetsWithNoSharedElementsIsAnEmptySet() {
-        CustomSet<Integer> actual = new CustomSet<>(Arrays.asList(1, 2, 3))
+        Set<Integer> actual = new CustomSet<>(Arrays.asList(1, 2, 3))
                 .getIntersection(new CustomSet<>(Arrays.asList(4, 5, 6)));
 
         assertNotNull(actual);
@@ -267,7 +264,7 @@ public class CustomSetTest {
     @Test
     public void intersectionOfTwoSetsWithSharedElementsIsASetOfTheSharedElements() {
         CustomSet<Character> expected = new CustomSet<>(Collections.unmodifiableList(Arrays.asList('2', '3')));
-        CustomSet<Character> actual = new CustomSet<>(Arrays.asList('1', '2', '3', '4'))
+        Set<Character> actual = new CustomSet<>(Arrays.asList('1', '2', '3', '4'))
                 .getIntersection(new CustomSet<>(Arrays.asList('3', '2', '5')));
 
         assertNotNull(actual);
@@ -278,7 +275,7 @@ public class CustomSetTest {
      
     @Test
     public void differenceOfTwoEmptySetsIsAnEmptySet() {
-        CustomSet<String> actual = new CustomSet<String>(Collections.emptyList())
+        Set<String> actual = new CustomSet<String>(Collections.emptyList())
                 .getDifference(new CustomSet<>(Collections.emptyList()));
 
         assertNotNull(actual);
@@ -288,7 +285,7 @@ public class CustomSetTest {
      
     @Test
     public void differenceOfAnEmptySetAndNonEmptySetIsAnEmptySet() {
-        CustomSet<Integer> actual = new CustomSet<Integer>(Collections.emptyList())
+        Set<Integer> actual = new CustomSet<Integer>(Collections.emptyList())
                 .getDifference(new CustomSet<>(Arrays.asList(3, 2, 5)));
 
         assertNotNull(actual);
@@ -299,7 +296,7 @@ public class CustomSetTest {
     @Test
     public void differenceOfANonEmptySetAndAnEmptySetIsTheNonEmptySet() {
         CustomSet<Character> expected = new CustomSet<>(Collections.unmodifiableList(Arrays.asList('1', '2', '3', '4')));
-        CustomSet<Character> actual = new CustomSet<>(Arrays.asList('1', '2', '3', '4'))
+        Set<Character> actual = new CustomSet<>(Arrays.asList('1', '2', '3', '4'))
                 .getDifference(new CustomSet<>(Collections.emptyList()));
 
         assertNotNull(actual);
@@ -311,7 +308,7 @@ public class CustomSetTest {
     @Test
     public void differenceOfTwoNonEmptySetsIsASetOfElementsThatAreOnlyInTheFirstSet() {
         CustomSet<String> expected = new CustomSet<>(Collections.unmodifiableList(Arrays.asList("1", "3")));
-        CustomSet<String> actual = new CustomSet<>(Arrays.asList("3", "2", "1"))
+        Set<String> actual = new CustomSet<>(Arrays.asList("3", "2", "1"))
                 .getDifference(new CustomSet<>(Arrays.asList("2", "4")));
 
         assertNotNull(actual);
@@ -322,7 +319,7 @@ public class CustomSetTest {
      
     @Test
     public void unionOfTwoEmptySetsIsAnEmptySet() {
-        CustomSet<Integer> actual = new CustomSet<Integer>(Collections.emptyList())
+        Set<Integer> actual = new CustomSet<Integer>(Collections.emptyList())
                 .getUnion(new CustomSet<>(Collections.emptyList()));
 
         assertNotNull(actual);
@@ -333,7 +330,7 @@ public class CustomSetTest {
     @Test
     public void unionOfAnEmptySetAndNonEmptySetIsTheNonEmptySet() {
         CustomSet<Character> expected = new CustomSet<>(Collections.unmodifiableList(Collections.singletonList('2')));
-        CustomSet<Character> actual = new CustomSet<Character>(Collections.emptyList())
+        Set<Character> actual = new CustomSet<Character>(Collections.emptyList())
                 .getUnion(new CustomSet<>(Collections.singletonList('2')));
 
         assertNotNull(actual);
@@ -345,7 +342,7 @@ public class CustomSetTest {
     @Test
     public void unionOfANonEmptySetAndAnEmptySetIsTheNonEmptySet() {
         CustomSet<String> expected = new CustomSet<>(Collections.unmodifiableList(Arrays.asList("1", "3")));
-        CustomSet<String> actual = new CustomSet<>(Arrays.asList("1", "3"))
+        Set<String> actual = new CustomSet<>(Arrays.asList("1", "3"))
                 .getUnion(new CustomSet<>(Collections.emptyList()));
 
         assertNotNull(actual);
@@ -357,7 +354,7 @@ public class CustomSetTest {
     @Test
     public void unionOfTwoNonEmptySetsContainsAllUniqueElements() {
         CustomSet<Integer> expected = new CustomSet<>(Collections.unmodifiableList(Arrays.asList(3, 2, 1)));
-        CustomSet<Integer> actual = new CustomSet<>(Arrays.asList(1, 3))
+        Set<Integer> actual = new CustomSet<>(Arrays.asList(1, 3))
                 .getUnion(new CustomSet<>(Arrays.asList(2, 3)));
 
         assertNotNull(actual);
