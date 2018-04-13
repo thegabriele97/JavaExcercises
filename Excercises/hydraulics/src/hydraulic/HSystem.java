@@ -37,7 +37,6 @@ public class HSystem {
 			}
 
 			source = (Source)elem;
-			return;
 		}
 
 		elements.add(elem);
@@ -49,14 +48,13 @@ public class HSystem {
 	 */
 	public Element[] getElements() {
 		
-		Element[] elements = new Element[this.elements.size() + 1];
+		Element[] elements = new Element[this.elements.size()];
 		int cursor = 0;
 
 		for (Element e : this.elements) {
 			elements[cursor++] = e;
 		}
 
-		elements[cursor] = source;
 		return elements;
 	}
 	
