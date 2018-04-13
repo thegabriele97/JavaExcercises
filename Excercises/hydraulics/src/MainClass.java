@@ -21,22 +21,22 @@ public class MainClass {
 
         Source src = new Source("src");
         
-        Sink sink1 = new Sink("sink 1");
-        Sink sink2 = new Sink("Sink 2");
-        Sink sink3 = new Sink("Sink 3");
-        Sink sink4 = new Sink("Sink 4");
-        Sink sink5 = new Sink("Sink 5");
-        Sink sink6 = new Sink("Sink 6");
+        Sink sink1 = new Sink("sink1");
+        Sink sink2 = new Sink("Sink2");
+        Sink sink3 = new Sink("Sink3");
+        Sink sink4 = new Sink("Sink4");
+        Sink sink5 = new Sink("Sink5");
+        Sink sink6 = new Sink("Sink6");
 
         Tap tap1 = new Tap("tap1");
         Tap tap2 = new Tap("tap2");
         Tap tap3 = new Tap("tap3");
         Tap tap4 = new Tap("Tap4");
 
-        Split split1 = new Split("split 1");
-        Split split2 = new Split("Split 2");
-        Split split3 = new Split("Split 3");
-        Split split4 = new Split("Split 4");
+        Split split1 = new Split("split1");
+        Split split2 = new Split("Split2");
+        Split split3 = new Split("Split3");
+        Split split4 = new Split("Split4");
 
         system.addElement(src);
         system.addElement(sink1);

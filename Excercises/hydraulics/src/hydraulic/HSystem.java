@@ -163,30 +163,26 @@ public class HSystem {
 		layoutBuffer.append(currentElement);
 
 		if (currentElement instanceof Split) {
-
-			int currentLen = layoutBuffer.length() - prevLen * 5 / 2;
 			Element[] elements = ((Split)currentElement).getOutputs();
+
+			prevLen += currentElement.toString().length() + 4;
+			getLayoutRecursively(elements[0], currentElement, prevLen, layoutBuffer);
 			
-			for (Element e : elements) {
-				getLayoutRecursively(e, currentElement, currentLen, layoutBuffer);
-
-				if (e != elements[elements.length - 1]) {
-					layoutBuffer.append('\n');
-
-					for (int i = 0; i <= currentLen; i++) {
-						layoutBuffer.append(' ');
-					}
-					layoutBuffer.append("|\n");
-	
-					for (int i = 0; i < currentLen; i++) {
-						layoutBuffer.append(' ');
-					}
-				}	
+			layoutBuffer.append('\n');
+			for (int i = 0; i <= prevLen; i++) {
+				layoutBuffer.append(' ');
 			}
+			
+			layoutBuffer.append("|\n");
+			for (int i = 0; i < prevLen; i++) {
+				layoutBuffer.append(' ');
+			}
+
+			getLayoutRecursively(elements[1], currentElement, prevLen + 3, layoutBuffer);
 
 		} else {
 			try {
-				getLayoutRecursively(currentElement.getOutput(), currentElement, prevLen, layoutBuffer);
+				getLayoutRecursively(currentElement.getOutput(), currentElement, prevLen + currentElement.toString().length() + 2, layoutBuffer);
 			} catch (UnsupportedOperationException e) {
 				return;
 			}
