@@ -27,8 +27,10 @@ public class HSystem {
 	/**
 	 * Adds a new element to the system
 	 * @param elem
+	 * @throws MoreThanASourceException if there is already a Source Element 
+	 * in the system afert a Source Element is passed as argument
 	 */
-	public void addElement(Element elem) throws MoreThanASourceException {
+	public void addElement(Element elem) {
 		
 		if (elem instanceof Source) {
 
@@ -71,8 +73,11 @@ public class HSystem {
 	
 	/**
 	 * starts the simulation of the system
+	 * 
+	 * @throws NoSourceException if there is no Source in the System.
+	 * @throws NoSinkFoundAtEndOfPathException if there is no Sink at end of a Path
 	 */
-	public void simulate() throws NoSourceException, NoSinkFoundAtEndOfPathException {
+	public void simulate() {
 		
 		if (source == null) {
 			throw new NoSourceException();

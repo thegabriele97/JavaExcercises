@@ -2,7 +2,7 @@ import hydraulic.*;
 
 public class ExampleApp {
 
-	public static void main(String args[]) throws Exception {
+	public static void main(String args[]) {
 		
 		HSystem s = new HSystem();
 	

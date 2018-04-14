@@ -1,6 +1,6 @@
 package hydraulic.exceptions;
 
 @SuppressWarnings("serial")
-public class NoSourceException extends Exception {
+public class NoSourceException extends RuntimeException {
 
 }
