@@ -150,6 +150,11 @@ public class HSystem {
 		if (currentElement instanceof Sink) {
 			outputBuffer.append(string.toString() + "\n");
 		}
+
+		/* ELEMENT: NULL */
+		if (currentElement == null) {
+			throw new NullPointerException();
+		}
 	}
 
 	private void getLayoutRecursively(Element currentElement, Element prev, int prevLen, StringBuilder layoutBuffer) {
