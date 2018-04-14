@@ -58,8 +58,7 @@ public class MainClass {
         split2.connect(split4, 1);
         split4.connect(sink5, 0);
         split4.connect(sink6, 1);
-        tap4.connect(sink1);
-
+        
         src.setFlow(50);
         tap1.setOpen(true);
         tap2.setOpen(true);

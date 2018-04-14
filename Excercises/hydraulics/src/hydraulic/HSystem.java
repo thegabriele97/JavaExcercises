@@ -97,8 +97,7 @@ public class HSystem {
 	private void recursiveSimulation(Element currentElement, double inputFlow, StringBuilder outputBuffer) {
 
 		StringBuilder string = new StringBuilder()
-				.append("Element: ")
-				.append(currentElement.getName())
+				.append(currentElement)
 				.append('\n');
 
 		if (!(currentElement instanceof Source)) {
@@ -189,6 +188,8 @@ public class HSystem {
 			try {
 				getLayoutRecursively(currentElement.getOutput(), currentElement, prevLen + currentElement.toString().length() + 2, layoutBuffer);
 			} catch (UnsupportedOperationException e) {
+				return;
+			} catch (NullPointerException e) {
 				return;
 			}
 		}
