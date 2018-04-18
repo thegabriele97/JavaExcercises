@@ -51,13 +51,7 @@ public class HSystem {
 	public Element[] getElements() {
 		
 		Element[] elements = new Element[this.elements.size()];
-		int cursor = 0;
-
-		for (Element e : this.elements) {
-			elements[cursor++] = e;
-		}
-
-		return elements;
+		return this.elements.toArray(elements);
 	}
 	
 	/**
