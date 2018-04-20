@@ -60,13 +60,9 @@ public abstract class Element {
 	/**
 	 * Receives an input flow and simulate the flow
 	 * through this element.
-	 * 
-	 * <b>DON'T use it on a Split object. Use instead an overloaded
-	 * method:</b> See {@link #simulate() String simulate(double, int)}.
-	 * 
 	 * @return String containing infos about this element 
 	 * and input/output flow simulation
-	 * @throws UnsupportedOperationException if used on a Sink or Split object
+	 * @throws UnsupportedOperationException if used on a Sink object
 	 */
 	public abstract String simulate(double inputFlow);
 

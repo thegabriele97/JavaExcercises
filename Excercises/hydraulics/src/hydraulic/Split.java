@@ -64,10 +64,6 @@ public class Split extends Element implements Iterable<Element> {
 
 	@Override
 	public String simulate(double inputFlow) {
-		throw new UnsupportedOperationException();
-	}
-
-	public String simulate(double inputFlow, int noutput) {
 		StringBuilder string = new StringBuilder()
 				.append(this)
 				.append('\n')

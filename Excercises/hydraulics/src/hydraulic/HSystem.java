@@ -93,9 +93,8 @@ public class HSystem {
 		if (currentElement instanceof Split) {
 			Split split = ((Split)currentElement);
 			
-			int i = 0;
 			for (Element e : split) {
-				outputBuffer.append(split.simulate(inputFlow, i++));
+				outputBuffer.append(split.simulate(inputFlow));
 				recursiveSimulation(e, split.computeOutputFlow(inputFlow), outputBuffer);
 			}
 
