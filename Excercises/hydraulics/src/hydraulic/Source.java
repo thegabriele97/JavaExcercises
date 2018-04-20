@@ -22,4 +22,26 @@ public class Source extends Element {
 	protected double getFlow() {
 		return exitFlow;
 	}
+
+	@Override
+	public double computeOutputFlow(double inputFlow) {
+		return inputFlow;
+	}
+
+	@Override
+	public String simulate(double inputFlow) {
+
+		if (inputFlow != getFlow()) {
+			throw new IllegalArgumentException();
+		}
+
+		StringBuilder string = new StringBuilder()
+				.append(this)
+				.append('\n')
+				.append("Output flow: ")
+				.append(computeOutputFlow(inputFlow))
+				.append('\n');
+
+		return string.toString();
+	}
 }

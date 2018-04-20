@@ -72,82 +72,41 @@ public class HSystem {
 	 * @throws NoSinkFoundAtEndOfPathException if there is no Sink at end of a Path
 	 */
 	public void simulate() {
-		
+		StringBuilder output = new StringBuilder();
+
 		if (source == null) {
 			throw new NoSourceException();
 		}
-
-		StringBuilder output = new StringBuilder();
-
-		try {
-			recursiveSimulation(source, source.getFlow(), output);
-		} catch (NullPointerException e) {
-			throw new NoSinkFoundAtEndOfPathException();
-		}
-		
+	
+		recursiveSimulation(source, source.getFlow(), output);	
 		System.out.println(output);
 	}
 
 	private void recursiveSimulation(Element currentElement, double inputFlow, StringBuilder outputBuffer) {
 
-		StringBuilder string = new StringBuilder()
-				.append(currentElement)
-				.append('\n');
-
-		if (!(currentElement instanceof Source)) {
-			string.append("Input flow: ")
-				  .append(inputFlow)
-				  .append('\n');
-		}
-
-		/* ELEMENT: SOURCE */
-		if (currentElement instanceof Source) {
-			string.append("Output flow: ")
-				  .append(inputFlow)
-				  .append('\n');
-
-			outputBuffer.append(string.toString() + "\n");
-			recursiveSimulation(currentElement.getOutput(), inputFlow, outputBuffer);
-		}
-
-		/* ELEMENT: TAP */
-		if (currentElement instanceof Tap) {
-			
-			Tap tap = (Tap)currentElement;					
-			double outputFlow = (tap.isOpen()) ? inputFlow : 0;
-		
-			string.append("Output flow: ")
-			  	  .append(outputFlow)
-				  .append('\n');
-				  
-		    outputBuffer.append(string.toString() + "\n");
-			recursiveSimulation(tap.getOutput(), outputFlow, outputBuffer);
+		/* ELEMENT: NULL */
+		if (currentElement == null) {
+			throw new NoSinkFoundAtEndOfPathException();
 		}
 
 		/* ELEMENT: SPLIT */
 		if (currentElement instanceof Split) {
-
-			double outputFlow = inputFlow / 2;
-
-			string.append("Output flow: ")
-			  	  .append(outputFlow)
-				  .append('\n');
-
-			Element[] elements = ((Split)currentElement).getOutputs();
-			for (Element e : elements) {
-				outputBuffer.append(string.toString() + "\n");
-				recursiveSimulation(e, outputFlow, outputBuffer);
+			Split split = ((Split)currentElement);
+			
+			int i = 0;
+			for (Element e : split) {
+				outputBuffer.append(split.simulate(inputFlow, i++));
+				recursiveSimulation(e, split.computeOutputFlow(inputFlow), outputBuffer);
 			}
+
+			return;
 		}
 
-		/* ELEMENT: SINK */
-		if (currentElement instanceof Sink) {
-			outputBuffer.append(string.toString() + "\n");
-		}
-
-		/* ELEMENT: NULL */
-		if (currentElement == null) {
-			throw new NullPointerException();
+		outputBuffer.append(currentElement.simulate(inputFlow));		
+		if (!(currentElement instanceof Sink)) {
+			recursiveSimulation(currentElement.getOutput(), 
+								currentElement.computeOutputFlow(inputFlow), 
+								outputBuffer);
 		}
 	}
 

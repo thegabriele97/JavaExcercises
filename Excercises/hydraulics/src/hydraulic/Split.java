@@ -1,5 +1,7 @@
 package hydraulic;
 
+import java.util.Iterator;
+
 /**
  * Represents a split element, a.k.a. T element
  * 
@@ -7,7 +9,7 @@ package hydraulic;
  * receive a stream that is half the input stream of the split.
  */
 
-public class Split extends Element {
+public class Split extends Element implements Iterable<Element> {
 	private Element[] outputs;
 
 	/**
@@ -53,5 +55,47 @@ public class Split extends Element {
 		}
 
 		outputs[noutput] = elem;
+	}
+
+	@Override
+	public double computeOutputFlow(double inputFlow) {
+		return (inputFlow / 2);
+	}
+
+	@Override
+	public String simulate(double inputFlow) {
+		throw new UnsupportedOperationException();
+	}
+
+	public String simulate(double inputFlow, int noutput) {
+		StringBuilder string = new StringBuilder()
+				.append(this)
+				.append('\n')
+				.append("Input flow: ")
+				.append(inputFlow)
+				.append('\n')
+				.append("Output flow: ")
+			  	.append(computeOutputFlow(inputFlow))
+				.append('\n');
+
+		return string.toString();
+	}
+
+	@Override
+	public Iterator<Element> iterator() {
+		
+		return new Iterator<Element>() {
+			int cursor = 0;
+
+			@Override
+			public boolean hasNext() {
+				return (cursor < outputs.length);
+			}
+
+			@Override
+			public Element next() {
+				return outputs[cursor++];
+			}
+		};
 	}
 }

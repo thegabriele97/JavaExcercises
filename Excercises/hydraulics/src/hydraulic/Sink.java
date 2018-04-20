@@ -13,6 +13,18 @@ public class Sink extends Element {
 	public Sink(String name) {
 		super(name);
 	}
+
+	@Override
+	public String simulate(double inputFlow) {
+		StringBuilder string = new StringBuilder()
+				.append(this)
+				.append('\n')
+				.append("Input flow: ")
+				.append(inputFlow)
+				.append('\n');
+
+		return string.toString();
+	}
 	
 	/**
 	 * Not supported on this class
@@ -27,6 +39,14 @@ public class Sink extends Element {
 	 */
 	@Override
 	public Element getOutput() {
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Not supported on this class
+	 */
+	@Override
+	public double computeOutputFlow(double inputFlow) {
 		throw new UnsupportedOperationException();
 	}
 	

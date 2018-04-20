@@ -49,6 +49,27 @@ public abstract class Element {
 		return output;
 	}
 
+	/**
+	 * Receives an input flow and compute
+	 * a possible output flow to use during simulation
+	 * @param inputFLow flow in input
+	 * @return output flow given inputFLow
+	 */
+	public abstract double computeOutputFlow(double inputFlow);
+
+	/**
+	 * Receives an input flow and simulate the flow
+	 * through this element.
+	 * 
+	 * <b>DON'T use it on a Split object. Use instead an overloaded
+	 * method:</b> See {@link #simulate() String simulate(double, int)}.
+	 * 
+	 * @return String containing infos about this element 
+	 * and input/output flow simulation
+	 * @throws UnsupportedOperationException if used on a Sink or Split object
+	 */
+	public abstract String simulate(double inputFlow);
+
 	@Override
 	public String toString() {
 		StringBuilder string = new StringBuilder()
