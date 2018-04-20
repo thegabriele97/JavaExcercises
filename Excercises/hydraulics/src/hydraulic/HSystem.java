@@ -102,6 +102,7 @@ public class HSystem {
 			return;
 		}
 
+		/* ELEMENT: OTHER */
 		outputBuffer.append(currentElement.simulate(inputFlow));		
 		if (!(currentElement instanceof Sink)) {
 			recursiveSimulation(currentElement.getOutput(), 
