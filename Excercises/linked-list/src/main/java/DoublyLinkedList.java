@@ -60,7 +60,23 @@ public class DoublyLinkedList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        
+        return new Iterator<T>() {
+            private Node cursor = head;
+
+            @Override
+            public boolean hasNext() {
+                return (cursor != null);
+            }
+
+            @Override
+            public T next() {
+                Node tmp = cursor;
+                
+                cursor = cursor.getNext();
+                return tmp.getItem();
+            }
+        };
     }
     
     private class Node {
