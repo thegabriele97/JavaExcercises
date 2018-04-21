@@ -68,31 +68,26 @@ public class WordProblemSolverTest {
         assertEquals(3, solver.solve("What is 20 minus 4 minus 13?"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSubtractionThenAddition() {
         assertEquals(14, solver.solve("What is 17 minus 6 plus 3?"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testMultipleMultiplications() {
         assertEquals(-12, solver.solve("What is 2 multiplied by -2 multiplied by 3?"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testAdditionThenMultiplication() {
         assertEquals(-8, solver.solve("What is -3 plus 7 multiplied by -2?"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testMultipleDivisions() {
         assertEquals(2, solver.solve("What is -12 divided by 2 divided by -3?"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testUnknownOperation() {
         expectedException.expect(IllegalArgumentException.class);
@@ -101,7 +96,6 @@ public class WordProblemSolverTest {
         solver.solve("What is 52 cubed?");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testInvalidQuestionFormat() {
         expectedException.expect(IllegalArgumentException.class);
