@@ -9,8 +9,8 @@ import java.util.Map;
 public class WordCount {
 
     public Map<String, Integer> phrase(String ph) {
-        Boolean flag = false;
         StringBuffer buff = new StringBuffer();
+        boolean flag = false;
 
         for (char ch : ph.toCharArray()) {
 
@@ -24,15 +24,12 @@ public class WordCount {
             flag = false;
         }
 
-        String[] words = buff.toString()
-                             .split(" ");
-
-        return countWords(words);                            
+        return countWords(buff.toString().split(" "));                            
     }
 
     private Map<String, Integer> countWords(String[] words) {
-
         Map<String, Integer> map = new HashMap<>(words.length * 3);
+        
         for (String x : words) {
 
             if (x.length() > 0 && !x.contains(" ")) {
