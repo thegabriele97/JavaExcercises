@@ -16,7 +16,6 @@ public class StrainTest {
         Assert.assertEquals(expectedOutput, Strain.keep(input, x -> x < 10));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void keepEverything() {
         List<Integer> input = Arrays.asList(1, 2, 3);
@@ -24,7 +23,7 @@ public class StrainTest {
         Assert.assertEquals(expectedOutput, Strain.keep(input, x -> x < 10));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void keepFirstAndLast() {
         List<Integer> input = Arrays.asList(1, 2, 3);
@@ -32,7 +31,7 @@ public class StrainTest {
         Assert.assertEquals(expectedOutput, Strain.keep(input, x -> x % 2 != 0));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void keepNeitherFirstNorLast() {
         List<Integer> input = Arrays.asList(1, 2, 3, 4, 5);
@@ -40,7 +39,7 @@ public class StrainTest {
         Assert.assertEquals(expectedOutput, Strain.keep(input, x -> x % 2 == 0));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void KeepStrings() {
         List<String> words = Arrays
@@ -50,7 +49,7 @@ public class StrainTest {
                 Strain.keep(words, x -> x.startsWith("z")));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void KeepArrays() {
         List<List<Integer>> actual = Arrays.asList(
@@ -70,7 +69,7 @@ public class StrainTest {
                 Strain.keep(actual, col -> col.contains(5)));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void emptyDiscard() {
         List<Integer> input = new LinkedList<>();
@@ -78,7 +77,7 @@ public class StrainTest {
         Assert.assertEquals(expectedOutput, Strain.discard(input, x -> x < 10));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void discardNothing() {
         List<Integer> input = Arrays.asList(1, 2, 3);
@@ -86,7 +85,7 @@ public class StrainTest {
         Assert.assertEquals(expectedOutput, Strain.discard(input, x -> x > 10));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void discardFirstAndLast() {
         List<Integer> input = Arrays.asList(1, 2, 3);
@@ -95,7 +94,7 @@ public class StrainTest {
 
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void discardNeitherFirstNorLast() {
         List<Integer> input = Arrays.asList(1, 2, 3, 4, 5);
@@ -103,7 +102,7 @@ public class StrainTest {
         Assert.assertEquals(expectedOutput, Strain.discard(input, x -> x % 2 == 0));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void discardStrings() {
         List<String> words = Arrays
@@ -113,7 +112,7 @@ public class StrainTest {
                 Strain.discard(words, x -> x.startsWith("z")));
     }
 
-    @Ignore("Remove to run test")
+     
     @Test
     public void discardArrays() {
         List<List<Integer>> actual = Arrays.asList(
