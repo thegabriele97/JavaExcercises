@@ -1,4 +1,10 @@
 
+/**
+ * I made this in order to use less possible standard
+ * classes and interfaces given by Java Library.
+ * 
+ * @see java.function.Predicate
+ */
 public interface Predicate<T> {
 
     /**
