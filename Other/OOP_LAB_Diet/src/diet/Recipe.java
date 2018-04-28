@@ -45,6 +45,8 @@ public class Recipe extends Element {
 			throw new IllegalArgumentException(String.format("Unable to retrieve '%s' from '%s'.", material, food.getClass()));
 		}
 
+		quantity /= (per100g()) ? 100 : 1;
+		
 		calories += element.get().getCalories() * quantity;
 		proteins += element.get().getProteins() * quantity;
 		carbs += element.get().getCarbs() * quantity;

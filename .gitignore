@@ -16,3 +16,5 @@ bin/configlet
 bin/configlet.exe
 /exercises/.nb-gradle/
 **/out
+.svn
+.svn/wc.db
